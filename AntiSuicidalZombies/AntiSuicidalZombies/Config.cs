@@ -11,7 +11,7 @@ namespace AntiSuicidalZombies
 {
     public class Config
     {
-        [Description("Whether or not debugging is enabled")]
+        [Description("Should debugging logs be enabled?")]
         public bool Debug { get; set; } = false;
 
         [Description("Effect(s) applied to zombies after walking into a tesla and their duration time.")]
