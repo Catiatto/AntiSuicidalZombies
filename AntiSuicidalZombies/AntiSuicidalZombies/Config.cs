@@ -5,15 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
+using CustomPlayerEffects;
 
 namespace AntiSuicidalZombies
 {
     public class Config
     {
-        [Description("Should the plugin be enabled?")]
-        public bool IsEnabled { get; set; } = true;
-
-        [Description("Should debug be enabled?")]
+        [Description("Whether or not debugging is enabled")]
         public bool Debug { get; set; } = false;
 
         [Description("Effect(s) applied to zombies after walking into a tesla and their duration time.")]
@@ -65,5 +63,12 @@ namespace AntiSuicidalZombies
                }
             }
         };
+    }
+
+    public class EffectParameters
+    {
+        public byte Intensity { get; set; }
+
+        public float Duration { get; set; }
     }
 }
