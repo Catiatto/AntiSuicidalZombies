@@ -5,17 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using CustomPlayerEffects;
 
 namespace AntiSuicidalZombies
 {
     public class Config
     {
-        [Description("Should debugging logs be enabled?")]
+        [Description("Should debug be enabled?")]
         public bool Debug { get; set; } = false;
 
-        [Description("Effect(s) applied to zombies after walking into a tesla and their duration time.")]
-        public Dictionary<string, EffectParameters> TeslaEffects { get; set; } = new Dictionary<string, EffectParameters>
+        [Description("Effects applied to zombies after walking into a tesla and their duration time. Leave empty to disable this feature.")]
+        public Dictionary<string, EffectParameters> TeslaEffects { get; set; } = new()
         {
             {
                "Blurred",
@@ -35,31 +34,28 @@ namespace AntiSuicidalZombies
             }
         };
 
-        [Description("Effect(s) applied to zombies after being crushed by a door or an elevator and their duration time.")]
-        public Dictionary<string, EffectParameters> CrushedEffects { get; set; } = new Dictionary<string, EffectParameters>
+        [Description("Effects applied to zombies after being crushed by a door or an elevator and their duration time. Leave empty to disable this feature.")]
+        public Dictionary<string, EffectParameters> CrushedEffects { get; set; } = new()
         {
             {
-               "Concussed",
-               new EffectParameters
+               "Concussed", new()
                {
-                   Intensity = 5,
-                   Duration = 10f
+                   Duration = 10f,
+                   Intensity = 5
                }
             },
             {
-               "Deafened",
-               new EffectParameters
+               "Deafened", new()
                {
-                   Intensity = 1,
-                   Duration = 20f
+                   Duration = 20f,
+                   Intensity = 1
                }
             },
             {
-               "Slowness",
-               new EffectParameters
+               "Slowness", new()
                {
-                   Intensity = 30,
-                   Duration = 30f
+                   Duration = 30f,
+                   Intensity = 30
                }
             }
         };
@@ -67,8 +63,8 @@ namespace AntiSuicidalZombies
 
     public class EffectParameters
     {
-        public byte Intensity { get; set; }
-
         public float Duration { get; set; }
+
+        public byte Intensity { get; set; }        
     }
 }
