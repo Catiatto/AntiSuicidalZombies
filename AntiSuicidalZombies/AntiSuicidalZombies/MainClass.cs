@@ -109,7 +109,7 @@ namespace AntiSuicidalZombies
         public override string Name { get; } = "AntiSuicidalZombies";
         public override string Description { get; } = null;
         public override string Author { get; } = "Phineapple18";
-        public override Version Version { get; } = new(3, 0, 1);
+        public override Version Version { get; } = new(3, 0, 2);
         public override Version RequiredApiVersion { get; } = new(LabApiProperties.CompiledVersion);
     }
 }
