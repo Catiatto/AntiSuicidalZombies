@@ -64,7 +64,6 @@ namespace AntiSuicidalZombies
     public class EffectParameters
     {
         public float Duration { get; set; }
-
         public byte Intensity { get; set; }        
     }
 }

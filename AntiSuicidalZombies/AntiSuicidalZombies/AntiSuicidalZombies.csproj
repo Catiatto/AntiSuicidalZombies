@@ -65,6 +65,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "$(SecretLabFiles)\LabAPI-Beta\plugins\7777\$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "$(SecretLabFiles)\LabAPI\plugins\7777\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
