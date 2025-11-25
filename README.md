@@ -1,4 +1,4 @@
-# AntiSuicidalZombies (3.0.2)
+# AntiSuicidalZombies (3.0.3)
 Plugin for the "SCP: Secret Laboratory" game, that prevents Zombies (SCP-049-2) from suiciding by walking into a Tesla, jumping into a void or being crushed by a bulk door or an elevator.
 
 ## Features
