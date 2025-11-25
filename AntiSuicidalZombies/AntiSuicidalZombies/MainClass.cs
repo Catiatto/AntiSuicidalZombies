@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Log = LabApi.Features.Console.Logger;
+using CheckpointDoor = LabApi.Features.Wrappers.CheckpointDoor;
+using ElevatorDoor = LabApi.Features.Wrappers.ElevatorDoor;
+
 using CustomPlayerEffects;
 using Interactables.Interobjects.DoorUtils;
 using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Events.Handlers;
 using LabApi.Features;
-using Log = LabApi.Features.Console.Logger;
 using LabApi.Features.Wrappers;
-using CheckpointDoor = LabApi.Features.Wrappers.CheckpointDoor;
-using ElevatorDoor = LabApi.Features.Wrappers.ElevatorDoor;
 using LabApi.Loader.Features.Plugins;
 using MapGeneration;
 using PlayerRoles;
@@ -78,7 +79,7 @@ namespace AntiSuicidalZombies
                 }
                 else
                 {
-                    IEnumerable<Door> doors = ev.Player.Room.Doors.Where(d => d.Permissions == DoorPermissionFlags.None && !CheckpointDoor.List.SelectMany(c => c.SubDoors).Contains(d));
+                    IEnumerable<Door> doors = ev.Player.Room.Doors.Where(d => d.Permissions == DoorPermissionFlags.None && !CheckpointDoor.Dictionary.Keys.SelectMany(c => c.SubDoors).Contains(d.Base));//!CheckpointDoor.List.SelectMany(c => c.SubDoors).Contains(d));
                     Transform door = doors.ElementAt(random.Next(doors.Count())).Transform;
                     position = door.position + Vector3.up;
                     position += Room.GetRoomAtPosition(position + door.forward.normalized) == ev.Player.Room ? door.forward.normalized : -door.forward.normalized;
@@ -108,8 +109,8 @@ namespace AntiSuicidalZombies
 
         public override string Name { get; } = "AntiSuicidalZombies";
         public override string Description { get; } = null;
-        public override string Author { get; } = "Phineapple18";
-        public override Version Version { get; } = new(3, 0, 2);
+        public override string Author { get; } = "Catiatto";
+        public override Version Version { get; } = new(3, 0, 3);
         public override Version RequiredApiVersion { get; } = new(LabApiProperties.CompiledVersion);
     }
 }
